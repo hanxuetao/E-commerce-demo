@@ -2,7 +2,7 @@
  * @Author: hanxuetao 
  * @Date: 2019-03-29 19:47:11 
  * @Last Modified by: hanxuetao
- * @Last Modified time: 2019-03-30 18:37:14
+ * @Last Modified time: 2019-04-07 14:27:04
  */
 const path = require('path')
 const webpack = require('webpack')
@@ -48,7 +48,19 @@ const config = {
                 test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
                 loader: 'url-loader?limit=100&name=resource/[name].[ext]',
             },
+            {
+                test: /\.string$/,
+                loader: ExtractTextPlugin.extract("html-loader"),
+            },
         ],
+    },
+    resolve:{
+        alias:{
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            service: __dirname + '/src/service',
+            image: __dirname + '/src/image'
+        }
     },
     externals: {
         // 在webpack打包配置中加载模块jquery
@@ -66,7 +78,17 @@ const config = {
         }),
         // 把css单独打包到文件里
         new ExtractTextPlugin("css/[name].css"),
-    ]
+    ],
+    devServer: {
+        port: 8088,
+        inline: true,
+        proxy : {
+            '**/*.do' : {
+                target: 'http://test.happymmall.com',
+                changeOrigin : true
+            }
+        }
+    }
 }
 
 if ('dev' === WEBPACK_ENV){

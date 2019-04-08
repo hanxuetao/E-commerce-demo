@@ -1,0 +1,23 @@
+/*
+ * @Author: hanxuetao 
+ * @Date: 2019-04-07 12:29:21 
+ * @Last Modified by: hanxuetao
+ * @Last Modified time: 2019-04-07 12:34:01
+ */
+
+ .footer{
+     padding-bottom: 10px;
+ }
+.footer .links{
+     text-align: center;
+     color: #666;
+     line-height: 30px;
+ }
+ .footer .links .link{
+     padding: 0 10px;
+ }
+.footer .copyright{
+    text-align: center;
+    color: #666;
+    line-height: 30px;
+}

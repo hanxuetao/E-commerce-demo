@@ -1,0 +1,19 @@
+/*
+ * @Author: hanxuetao 
+ * @Date: 2019-04-03 20:09:05 
+ * @Last Modified by: hanxuetao
+ * @Last Modified time: 2019-04-03 20:16:10
+ */
+
+ .nav-simple{
+     height: 60px;
+     line-height: 60px;
+     border-bottom: 1px solid #ddd;
+     background: #fff;
+ }
+
+ .nav-simple .logo{
+     font-size: 26px;
+     font-weight: bold;
+     color: #c60023;
+ }

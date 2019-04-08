@@ -1,0 +1,93 @@
+/*
+ * @Author: hanxuetao 
+ * @Date: 2019-04-03 13:24:37 
+ * @Last Modified by: hanxuetao
+ * @Last Modified time: 2019-04-03 21:15:37
+ */
+
+/* css reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #f6f6f6;
+    font: 12px/1.5 tahoma, arial, Microsoft Yahei, sans-serif;
+}
+li{
+    list-style: none;
+}
+img{
+    display: block;
+    border: none
+}
+label{
+    cursor: pointer;
+}
+input[type='checkbox']{
+    cursor: pointer;
+}
+
+/* layout */
+/* overflow的作用是清除浮动，外围元素会被内部元素的高度撑起 */
+.w{
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; 
+}
+/* .large .w{
+    width: 1600px;
+} */
+
+/* global style */
+.hide{
+    display: none;
+}
+
+/* Hyperlink style */
+.link{
+    color: #999;
+    cursor: pointer;
+    text-decoration: none;
+}
+.link:hover{
+    color: #e80012;
+}
+.link-text{
+    color: #999;
+    text-decoration: none;
+}
+/* btn */
+.btn{
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    border: none;
+    background:#c60023;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-mini{
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    padding: 0 10px;
+}
+/* loading */
+.loading{
+    margin: 10px auto;
+    display: block;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: url(../../image/loading.gif) no-repeat;
+    opacity: .6;
+}
