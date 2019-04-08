@@ -2,7 +2,7 @@
  * @Author: hanxuetao 
  * @Date: 2019-04-07 13:39:59 
  * @Last Modified by: hanxuetao
- * @Last Modified time: 2019-04-07 22:40:44
+ * @Last Modified time: 2019-04-08 17:59:13
  */
 /*
  * @Author: hanxuetao 
@@ -14,8 +14,6 @@
 require('./index.css')
 const _mm = require('util/mm.js')
 var templateIndex  = require('./index.string')
-
-console.log(templateIndex)
 
 const navSide = {
     option:{
@@ -37,7 +35,8 @@ const navSide = {
         //计算active数据
         for(var i = 0, iLength = this.option.navList.length; i < iLength; i++){
             if (this.option.navList[i].name === this.option.name) {
-                this.option.navList[i].name.isActive = true
+                this.option.navList[i].isActive = true
+                console.log(this.option.navList[i].isActive)
             }
         }
         //渲染list数据

@@ -2,7 +2,7 @@
  * @Author: hanxuetao 
  * @Date: 2019-03-29 19:47:11 
  * @Last Modified by: hanxuetao
- * @Last Modified time: 2019-04-07 14:27:04
+ * @Last Modified time: 2019-04-08 11:24:11
  */
 const path = require('path')
 const webpack = require('webpack')
@@ -14,10 +14,11 @@ const WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev'
 console.log(WEBPACK_ENV)
 
 //获取html-webpack-plugin参数的方法
-const getHtmlConfig = function (name) {
+const getHtmlConfig = function (name, title) {
     return {
         template: './src/view/'+ name +'.html',
         filename: 'view/'+ name +'.html',
+        title: title,
         inject: true,
         hash: true,
         chunks: ['common', name]
@@ -30,6 +31,7 @@ const config = {
         common: [path.join(__dirname, './src/page/common/index.js')],
         index: path.join(__dirname, './src/page/index/index.js'),
         login: path.join(__dirname, './src/page/login/index.js'),
+        result: path.join(__dirname, './src/page/result/index.js'),
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -49,9 +51,13 @@ const config = {
                 loader: 'url-loader?limit=100&name=resource/[name].[ext]',
             },
             {
-                test: /\.string$/,
-                loader: ExtractTextPlugin.extract("html-loader"),
-            },
+                test: /\.string$/, 
+                loader: 'html-loader',
+                // query : {
+                //     minimize : true,
+                //     removeAttributeQuotes : false
+                // }
+            }
         ],
     },
     resolve:{
@@ -68,8 +74,9 @@ const config = {
     },
     plugins: [
         // html 模版的处理
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('login')),
+        new HtmlWebpackPlugin(getHtmlConfig('index', 'HomePage')),
+        new HtmlWebpackPlugin(getHtmlConfig('login', 'LoginPage')),
+        new HtmlWebpackPlugin(getHtmlConfig('result', 'ResultPage')),
         
         // 独立通用模块到js/base.js
         new webpack.optimize.CommonsChunkPlugin({
