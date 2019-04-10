@@ -2,7 +2,7 @@
  * @Author: hanxuetao 
  * @Date: 2019-04-03 20:54:31 
  * @Last Modified by: hanxuetao
- * @Last Modified time: 2019-04-06 16:57:53
+ * @Last Modified time: 2019-04-09 15:18:23
  */
 
 require('./index.css')
@@ -25,7 +25,7 @@ const nav = {
         })
         //注册点击事件
         $('.js-register').click(function () {
-            window.location.href = './register.html'
+            window.location.href = './user-register.html'
         })
         //退出点击事件
         $('.js-logout').click(function () {

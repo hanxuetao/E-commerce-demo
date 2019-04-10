@@ -2,7 +2,7 @@
  * @Author: hanxuetao 
  * @Date: 2019-03-31 15:08:33 
  * @Last Modified by: hanxuetao
- * @Last Modified time: 2019-04-06 16:19:08
+ * @Last Modified time: 2019-04-09 10:37:29
  */
 const Hogan = require('hogan.js')
 const conf = {
@@ -77,7 +77,7 @@ const _mm = {
     },
     // 统一登录处理
     doLogin: function () {
-        window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href)
+        window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href)
     },
     goHome: function () {
         window.location.href = './index.html'

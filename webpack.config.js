@@ -2,7 +2,7 @@
  * @Author: hanxuetao 
  * @Date: 2019-03-29 19:47:11 
  * @Last Modified by: hanxuetao
- * @Last Modified time: 2019-04-08 11:24:11
+ * @Last Modified time: 2019-04-09 17:43:30
  */
 const path = require('path')
 const webpack = require('webpack')
@@ -28,10 +28,12 @@ const getHtmlConfig = function (name, title) {
 const config = {
     entry: {
         //common 可以作为全局组件 或者样式来进行打包 同时也能打包到base.js中
-        common: [path.join(__dirname, './src/page/common/index.js')],
-        index: path.join(__dirname, './src/page/index/index.js'),
-        login: path.join(__dirname, './src/page/login/index.js'),
-        result: path.join(__dirname, './src/page/result/index.js'),
+        'common': [path.join(__dirname, './src/page/common/index.js')],
+        'index': path.join(__dirname, './src/page/index/index.js'),
+        'user-login': path.join(__dirname, './src/page/user-login/index.js'),
+        'user-register': path.join(__dirname, './src/page/user-register/index.js'),
+        'user-pass-reset': path.join(__dirname, './src/page/user-pass-reset/index.js'),
+        'result': path.join(__dirname, './src/page/result/index.js'),
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -75,7 +77,9 @@ const config = {
     plugins: [
         // html 模版的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', 'HomePage')),
-        new HtmlWebpackPlugin(getHtmlConfig('login', 'LoginPage')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-login', 'LoginPage')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-register', 'RegisterPage')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', 'ResetPasswordPage')),
         new HtmlWebpackPlugin(getHtmlConfig('result', 'ResultPage')),
         
         // 独立通用模块到js/base.js
